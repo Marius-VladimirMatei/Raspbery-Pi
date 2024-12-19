@@ -6,7 +6,7 @@ red_led = LED(18)  # Pin 18 for red
 yellow_led = LED(23)  # Pin 23 for yellow
 
 def menu():
-    print("\n--- LED Control Menu ---")
+    print("--- LED Control Menu ---")
     print("1. Blink Red LED")
     print("2. Blink Yellow LED")
     print("3. Exit")
@@ -19,23 +19,30 @@ def control_led():
 
         if choice == '1':
             print("Blinking Red LED...")
-            # Blink Red LED 5 times
-            for _ in range(20):
+            # Blink Red LED X times
+
+            for i in range(20):
                 red_led.on()  # Turn on red LED
-                sleep(0.1)      # Wait for 1 second
+                sleep(0.1)      # Wait for x second
+
                 red_led.off()  # Turn off red LED
-                sleep(0.1)      # Wait for 1 second
+                sleep(0.1)      # Wait for x second
+
         elif choice == '2':
             print("Blinking Yellow LED...")
-            # Blink Yellow LED 5 times
-            for _ in range(5):
+            # Blink Yellow LED Xtimes
+
+            for i in range(5):
                 yellow_led.on()  # Turn on yellow LED
-                sleep(1)         # Wait for 1 second
+                sleep(1)         # Wait for x second
+
                 yellow_led.off()  # Turn off yellow LED
-                sleep(1)         # Wait for 1 second
+                sleep(1)         # Wait for x second
+
         elif choice == '3':
             print("Exiting program.")
             break  # Exit the loop and end the program
+        
         else:
             print("Invalid choice, please try again.")
 
