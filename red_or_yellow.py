@@ -1,9 +1,10 @@
-from gpiozero import LED
+from gpiozero import LED, Buzzer
 from time import sleep
 
 # Set up GPIO pins as LEDs
 red_led = LED(18)  # Pin 18 for red
 yellow_led = LED(23)  # Pin 23 for yellow
+active_buzzer = Buzzer(24) #Pin 24 for buzzer 
 
 def menu():
     print("--- LED Control Menu ---")
@@ -13,7 +14,7 @@ def menu():
     choice = input("Enter your choice (1, 2, or 3): ")
     return choice
 
-def control_led():
+def control_led_and_buzzer():
     while True:
         choice = menu()  # Show the menu and get the user's choice
 
@@ -23,9 +24,12 @@ def control_led():
 
             for i in range(20):
                 red_led.on()  # Turn on red LED
+                active_buzzer.on()
                 sleep(0.1)      # Wait for x second
 
+
                 red_led.off()  # Turn off red LED
+                active_buzzer.off()
                 sleep(0.1)      # Wait for x second
 
         elif choice == '2':
@@ -34,21 +38,22 @@ def control_led():
 
             for i in range(5):
                 yellow_led.on()  # Turn on yellow LED
+                active_buzzer.on()
                 sleep(1)         # Wait for x second
 
                 yellow_led.off()  # Turn off yellow LED
+                active_buzzer.off()
                 sleep(1)         # Wait for x second
 
         elif choice == '3':
             print("Exiting program.")
             break  # Exit the loop and end the program
-        
+
         else:
             print("Invalid choice, please try again.")
 
 # Run the program
-control_led()
-
+control_led_and_buzzer()
 
 
 
