@@ -1,5 +1,8 @@
 # Flame sensor that send email in flame detection
 
+"""The flame sensor uses the IR light emited by the flame in the range of 700 nano meter to 1100 nm
+when the flame is detected the signal LED lights and the digital output pin goues to HIGH """
+
 # digital input device class needed to monitor the state of the flame sensor input pin for (HIGH(1) or LOW(0))
 from gpiozero import DigitalInputDevice, LED
 # simpe mail transfer protocol
@@ -58,7 +61,7 @@ try:
     print("Monitoring for flame detection...")
     while True:
         # Check if the flame sensor is triggered
-        if flame_sensor.is_active:  # If the sensor detects a flame (sensor output LOW)
+        if flame_sensor.is_active:  # If the sensor detects a flame (sensor output HIGH)
             print("Flame detected! Sending email and sounding the buzzer!")
             send_email()
             buzzer.on()  # Turn on the buzzer
