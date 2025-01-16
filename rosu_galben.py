@@ -8,17 +8,17 @@ active_buzzer = Buzzer(18) #Pin 24 for buzzer
 
 def menu():
     print("--- LED Control Menu ---")
-    print("1. ROT")
-    print("2. GELB")
+    print("1. LUMINEAZA ROSU")
+    print("2. LUMINEAZA GALBEN")
     print("3. EXIT")
-    choice = input("Enter your choice (ROT, GELB oder EXIT): ")
+    choice = input("Enter your choice (ROSU, GALBEN SAU EXIT): ")
     return choice
 
 def control_led_and_buzzer():
     while True:
         choice = menu()  # Show the menu and get the user's choice
        
-        if choice == 'ROT':
+        if choice == 'ROSU':
             print("Blinking Red LED...")
             # Blink Red LED X times
 
@@ -32,7 +32,7 @@ def control_led_and_buzzer():
                 active_buzzer.off()
                 sleep(0.1)      # Wait for x second
                
-        elif choice == 'GELB':
+        elif choice == 'GALBEN':
             print("Blinking Yellow LED...")
             # Blink Yellow LED Xtimes
 
