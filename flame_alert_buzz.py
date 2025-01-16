@@ -3,7 +3,7 @@
 """The flame sensor uses the IR light emitted by the flame in the range of 700 nanometers to 1100 nm
 when the flame is detected the signal LED lights and the digital output pin goes to HIGH"""
 
-# digital input device class needed to monitor the state of the flame sensor input pin for (HIGH(1) or LOW(0))
+# digital input device class needed to monitor the state of the flame sensor input pin for (HIGH(1)(flame detected) or LOW(0)(no flame)()
 from gpiozero import DigitalInputDevice, LED
 # simple mail transfer protocol
 import smtplib
@@ -17,13 +17,15 @@ from datetime import datetime
 
 
 # Setup logging configuration
-logging.basicConfig(filename="flame_detection_log.txt", level=logging.INFO, format='%(asctime)s - %(message)s')
+logging.basicConfig(filename="/home/Medeea/052583/py files/flame_detection_log.txt", level=logging.INFO, format='%(asctime)s - %(message)s')
 
 # Setup flame sensor using gpiozero on GPIO pin 17
+#  VCC pin flame sensor - 5V pin; GND pin on RPI5; Digital Ouput DO pin - GPIO 17
 FLAME_SENSOR_PIN = 17
 flame_sensor = DigitalInputDevice(FLAME_SENSOR_PIN)
 
 # Setup buzzer using gpiozero on GPIO pin 18 using LED class
+# VCC pin 5V pin; GND pin on RPI5; Control pin of the buzzer - GPIO 18
 BUZZER_PIN = 18
 buzzer = LED(BUZZER_PIN) 
 
